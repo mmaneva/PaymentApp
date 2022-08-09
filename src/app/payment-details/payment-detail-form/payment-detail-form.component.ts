@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentDetailService } from 'src/app/shared/payment-detail.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-payment-detail-form',
@@ -14,4 +15,12 @@ export class PaymentDetailFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(form: NgForm){
+    this.service.postPaymentDetail().subscribe(
+      res => {
+
+      },
+      err => { console.log(err); }
+    );
+  }
 }
