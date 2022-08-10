@@ -9,12 +9,16 @@ export class PaymentDetailService {
 
   constructor(private http:HttpClient) { }
 
-  formData: PaymentDetail = new PaymentDetail();
   readonly baseURL ='http://localhost:54287/api/PaymentDetail'
+  formData: PaymentDetail = new PaymentDetail();
   list : PaymentDetail[];
 
   postPaymentDetail(){
     return this.http.post(this.baseURL,this.formData);
+  }
+
+  putPaymentDetail(){
+    return this.http.put(`${this.baseURL}/${this.formData.paymentDetailId}`,this.formData);
   }
 
   refreshList(){
